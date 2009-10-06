@@ -563,7 +563,6 @@ install: all install-sh check-uninstall install-force
 #
 
 install-force: all install-translations
-	$(INSTALL) -m 755 -d $(DESTDIR)$(bindir) 
 	for i in $(PROGRAMS); do\
 		$(INSTALL) -m 755 $$i $(DESTDIR)$(bindir) ; \
 	done;
