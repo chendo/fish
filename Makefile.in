@@ -495,7 +495,6 @@ share/man: $(HELP_SRC)
 		cat $$i >>$$FILE; \
 		echo "*/" >>$$FILE; \
 	done
-	doxygen Doxyfile.help
 	for i in $(HELP_SRC); do \
 		CMD_NAME=`basename $$i .txt`; \
 		sed -e "s/\(.\)\\.SH/\1/" -e "s/$$CMD_NAME *\\\\- *\"\(.*\)\"/\1/" <help_doc/man/man1/$$CMD_NAME.1 >share/man/$$CMD_NAME.1; \
