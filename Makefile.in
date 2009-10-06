@@ -305,7 +305,6 @@ debug:
 
 user_doc: $(HDR_FILES_SRC) Doxyfile.user user_doc.head.html $(HELP_SRC)
 	$(MAKE) doc.h $(HDR_FILES)
-	doxygen Doxyfile.user
 	touch user_doc
 
 
@@ -581,19 +580,6 @@ install-force: all install-translations
 	done;
 	for i in $(FUNCTIONS_DIR_FILES); do \
 		$(INSTALL) -m 644 $$i $(DESTDIR)$(datadir)/fish/functions/; \
-	done;
-	for i in share/man/*.1; do \
-		$(INSTALL) -m 644 $$i $(DESTDIR)$(datadir)/fish/man/; \
-	done;
-	$(INSTALL) -m 755 -d $(DESTDIR)$(docdir)
-	for i in user_doc/html/* ChangeLog; do \
-		if test -f $$i; then \
-			$(INSTALL) -m 644 $$i $(DESTDIR)$(docdir); \
-		fi; \
-	done;
-	$(INSTALL) -m 755 -d $(DESTDIR)$(mandir)/man1
-	for i in $(MANUALS); do \
-		$(INSTALL) -m 644 $$i $(DESTDIR)$(mandir)/man1/; \
 	done;
 	@echo fish is now installed on your system. 
 	@echo To run fish, type \'fish\' in your terminal.
